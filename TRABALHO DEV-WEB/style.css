@@ -1,29 +1,227 @@
-body{
-    background: #181818;
-    margin: 0;
-    padding: 0;
-    font-family: ;
-    font-family: Arial, Helvetica, sans-serif;
+/* ==============================
+   GAME SECRETS - Folha de Estilo
+   ============================== */
+
+/* --- Geral --- */
+body {
+  background-color: #181818;
+  color: #ffffff;
+  font-family: "Barlow", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-header{
-    background-color: #9B30FF;
-    padding: 0px ;
-    height: 110px;
-    text-align: center;
-    margin: 0;
+
+/* --- Cabeçalho --- */
+header {
+  background-color: #111111;
+  border-bottom: 2px solid #9b30ff;
+  position: sticky;
+  top: 0;
 }
-img{
-    width:  190px;
-    height: 140px;
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  height: 70px;
+  position: relative;
 }
-footer{
-    text-align: center;
-    background-color: #9B30FF;
-    color: #ffffff;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+
+/* --- Logo --- */
+.logo img {
+  height: 50px;
+  display: block;
 }
-main{
-    color: #ffffff;
+
+/* --- Navegação --- */
+nav {
+  position: absolute; 
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s,
+    border-bottom 0.2s;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+  border-bottom: 2px solid #9b30ff;
+}
+
+/* --- Conteúdo principal --- */
+main {
+  padding: 60px 30px 100px 30px;
+  text-align: center;
+}
+
+main h1 {
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #9b30ff;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+main p {
+  font-size: 16px;
+  color: #aaaaaa;
+}
+
+/* --- Rodapé --- */
+footer {
+  background-color: #111111;
+  border-top: 2px solid #9b30ff;
+  color: #aaaaaa;
+  text-align: center;
+  padding: 14px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ==============================
+   JOGOS - Categorias e Cards
+   ============================== */
+
+.subtitulo {
+  font-size: 15px;
+  color: #aaaaaa;
+  margin-bottom: 40px;
+}
+
+/* --- Grade de categorias (jogos.html) --- */
+.grade-categorias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card-categoria {
+  display: block;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #2a2a2a;
+  background-color: #1f1f1f;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.card-categoria:hover {
+  border-color: #9b30ff;
+  transform: translateY(-4px);
+}
+
+.card-categoria img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain; /* mostra a imagem completa */
+  background-color: #111; /* preenche as bordas vazias */
+  display: block;
+}
+.card-categoria .card-nome {
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  padding: 12px;
+  text-align: center;
+}
+
+/* --- Grade de jogos (jogos-aventura.html, etc.) --- */
+.grade-jogos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card-jogo {
+  display: block;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #2a2a2a;
+  background-color: #1f1f1f;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.card-jogo:hover {
+  border-color: #9b30ff;
+  transform: translateY(-4px);
+}
+
+.card-jogo img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-info {
+  padding: 10px 12px;
+}
+
+.card-jogo .card-nome {
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.card-jogo .card-qtd {
+  font-size: 12px;
+  color: #9b30ff;
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* --- Botão voltar --- */
+.voltar {
+  display: inline-block;
+  color: #9b30ff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.voltar:hover {
+  text-decoration: underline;
 }
