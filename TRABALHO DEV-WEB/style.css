@@ -1,0 +1,26 @@
+body{
+    background: #181818;
+    margin: 0;
+    padding: 0;
+    font-family: ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    background-color: #9B30FF;
+    padding: 0px ;
+    height: 110px;
+    text-align: center;
+    margin: 0;
+}
+img{
+    width:  190px;
+    height: 140px;
+}
+footer{
+    text-align: center;
+    background-color: #9B30FF;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
