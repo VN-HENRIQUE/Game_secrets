@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Secrets</title>
+    <title>Game Secrets - Jogos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -34,42 +34,37 @@
         Escolha uma categoria para ver os jogos e seus easter eggs
       </p>
 
-      <section class="grade-categorias">
-        <a href="jogos-aventura.html" class="card-categoria">
-          <img src="img/imgaventura.jpg" alt="Aventura" />
-          <div class="card-nome">Aventura</div>
-        </a>
-
-        <a href="jogos-shooter.html" class="card-categoria">
-          <img src="img/imgshooter.jpg" alt="Shooter" />
-          <div class="card-nome">Shooter</div>
-        </a>
-
-        <a href="jogos-mundo-aberto.html" class="card-categoria">
-          <img src="img/imgmundoaberto.jpg" alt="Mundo Aberto" />
-          <div class="card-nome">Mundo Aberto</div>
-        </a>
-
-        <a href="jogos-rpg.html" class="card-categoria">
-          <img src="img/imgrpg.jpg" alt="RPG" />
-          <div class="card-nome">RPG</div>
-        </a>
-
-        <a href="jogos-terror.html" class="card-categoria">
-          <img src="img/imgterror.jpg" alt="Terror" />
-          <div class="card-nome">Terror</div>
-        </a>
-        <a href="jogos-plataforma.html" class="card-categoria">
-          <img src="img/imgplataforma.jpg" alt="Plataforma" />
-          <div class="card-nome">Plataforma</div>
-        </a>
+      <section class="grade-categorias" id="grade-categorias">
+        <!-- Os cards são gerados pelo JavaScript abaixo -->
       </section>
     </main>
 
     <footer>
-      <p> 
+      <p>
         <small>&copy; 2026 Game Secrets. Todos os direitos reservados.</small>
       </p>
     </footer>
+
+    <script>
+      const categorias = [
+  { nome: "Aventura",     imagem: "img/imgaventura.jpg",    pagina: "jogos.html?categoria=aventura"     },
+  { nome: "Shooter",      imagem: "img/imgshooter.jpg",     pagina: "jogos.html?categoria=shooter"      },
+  { nome: "Mundo Aberto", imagem: "img/imgmundoaberto.jpg", pagina: "jogos.html?categoria=mundo-aberto" },
+  { nome: "RPG",          imagem: "img/imgrpg.jpg",         pagina: "jogos.html?categoria=rpg"          },
+  { nome: "Terror",       imagem: "img/imgterror.jpg",      pagina: "jogos.html?categoria=terror"       },
+  { nome: "Plataforma",   imagem: "img/imgplataforma.jpg",  pagina: "jogos.html?categoria=plataforma"   },
+];
+
+      const grade = document.getElementById("grade-categorias");
+
+      categorias.forEach((categoria) => {
+        grade.innerHTML += `
+          <a href="${categoria.pagina}" class="card-categoria">
+            <img src="${categoria.imagem}" alt="${categoria.nome}" />
+            <div class="card-nome">${categoria.nome}</div>
+          </a>
+        `;
+      });
+    </script>
   </body>
 </html>

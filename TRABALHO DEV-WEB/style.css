@@ -241,3 +241,56 @@ footer {
   max-width: 600px;
   margin: 0 auto;
 }
+
+/* --- Artigo --- */
+.artigo-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.artigo-wrapper h1 {
+  font-family: "Rajdhani", Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #9b30ff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.artigo-wrapper p,
+.artigo-wrapper ul {
+  font-size: 16px;
+  color: #aaaaaa;
+  text-align: left;
+  line-height: 1.7;
+}
+
+.artigo-wrapper ul {
+  padding-left: 20px;
+}
+
+.artigo-wrapper ul li {
+  margin-bottom: 6px;
+}
+
+.artigo-wrapper h2 {
+  font-family: "Rajdhani", Arial, sans-serif;
+  color: #9b30ff;
+  text-align: left;
+}
+
+figure {
+    text-align: center;
+}
+
+figure img {
+    width: 650px;
+}
+
+figure figcaption {
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-top: 8px;
+}

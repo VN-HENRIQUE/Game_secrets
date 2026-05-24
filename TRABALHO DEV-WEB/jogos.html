@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Secrets - Jogos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Barlow:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="logo">
+          <img src="Logo.png" alt="Logo Game Secrets" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <a href="index.html" class="voltar">← Voltar para categorias</a>
+      <h1 id="titulo-categoria"></h1>
+      <p class="subtitulo" id="subtitulo-categoria"></p>
+      <section class="grade-jogos" id="grade-jogos"></section>
+    </main>
+
+    <footer>
+      <p><small>&copy; 2026 Game Secrets. Todos os direitos reservados.</small></p>
+    </footer>
+
+    <script>
+      // ================================================
+      // BANCO DE DADOS — adicione jogos aqui
+      // ================================================
+      const categorias = {
+        terror: {
+          nome: "Terror",
+          subtitulo: "Jogos de terror e seus easter eggs",
+          jogos: [
+            { nome: "Outlast",          imagem: "img/jogos/outlast.jpg",     eastereggs: 5,  pagina: "easter-outlast.html"     },
+            { nome: "Resident Evil 4",  imagem: "img/jogos/re4.jpg",         eastereggs: 8,  pagina: "easter-re4.html"         },
+            { nome: "Silent Hill 2",    imagem: "img/jogos/silenthill2.jpg", eastereggs: 6,  pagina: "easter-silenthill2.html" },
+            { nome: "Amnesia",          imagem: "img/jogos/amnesia.jpg",     eastereggs: 3,  pagina: "easter-amnesia.html"     },
+          ],
+        },
+        aventura: {
+          nome: "Aventura",
+          subtitulo: "Jogos de aventura e seus easter eggs",
+          jogos: [
+            { nome: "Uncharted 4",    imagem: "img/jogos/uncharted4.jpg",   eastereggs: 7, pagina: "easter-uncharted4.html"  },
+            { nome: "The Last of Us", imagem: "img/jogos/thelastofus.jpg",  eastereggs: 9, pagina: "easter-thelastofus.html" },
+          ],
+        },
+        shooter: {
+          nome: "Shooter",
+          subtitulo: "Jogos de shooter e seus easter eggs",
+          jogos: [
+            { nome: "Call of Duty: Black Ops", imagem: "img/jogos/blackops.jpg", eastereggs: 10, pagina: "easter-blackops.html" },
+            { nome: "Doom Eternal",            imagem: "img/jogos/doom.jpg",     eastereggs: 4,  pagina: "easter-doom.html"     },
+          ],
+        },
+        rpg: {
+          nome: "RPG",
+          subtitulo: "Jogos de RPG e seus easter eggs",
+          jogos: [
+            { nome: "The Elder Scrolls V: Skyrim", imagem: "img/jogos/skyrim.jpg",   eastereggs: 12, pagina: "easter-skyrim.html"   },
+            { nome: "The Witcher 3",               imagem: "img/jogos/witcher3.jpg", eastereggs: 11, pagina: "easter-witcher3.html" },
+          ],
+        },
+        "mundo-aberto": {
+          nome: "Mundo Aberto",
+          subtitulo: "Jogos de mundo aberto e seus easter eggs",
+          jogos: [
+            { nome: "GTA San Andreas",       imagem: "img/jogos/gtasa.jpg", eastereggs: 15, pagina: "easter-gtasa.html" },
+            { nome: "Red Dead Redemption 2", imagem: "img/jogos/rdr2.jpg",  eastereggs: 13, pagina: "easter-rdr2.html"  },
+          ],
+        },
+        plataforma: {
+          nome: "Plataforma",
+          subtitulo: "Jogos de plataforma e seus easter eggs",
+          jogos: [
+            { nome: "Super Mario World", imagem: "img/jogos/mariworld.jpg",    eastereggs: 6, pagina: "easter-marioworld.html"  },
+            { nome: "Hollow Knight",     imagem: "img/jogos/hollowknight.jpg", eastereggs: 4, pagina: "easter-hollowknight.html" },
+          ],
+        },
+      };
+
+      // ================================================
+      // Renderização
+      // ================================================
+      const params    = new URLSearchParams(window.location.search);
+      const categoria = categorias[params.get("categoria")];
+
+      const tituloEl   = document.getElementById("titulo-categoria");
+      const subtituloEl = document.getElementById("subtitulo-categoria");
+      const gradeEl    = document.getElementById("grade-jogos");
+
+      if (!categoria) {
+        tituloEl.textContent   = "Categoria não encontrada";
+        subtituloEl.textContent = "Volte e escolha uma categoria válida.";
+      } else {
+        document.title          = `Game Secrets - ${categoria.nome}`;
+        tituloEl.textContent    = categoria.nome;
+        subtituloEl.textContent = categoria.subtitulo;
+
+        gradeEl.innerHTML = categoria.jogos.map((jogo) => `
+          <a href="${jogo.pagina}" class="card-jogo">
+            <img src="${jogo.imagem}" alt="${jogo.nome}" />
+            <div class="card-info">
+              <div class="card-nome">${jogo.nome}</div>
+              <div class="card-qtd">${jogo.eastereggs} easter egg${jogo.eastereggs !== 1 ? "s" : ""}</div>
+            </div>
+          </a>
+        `).join("");
+      }
+    </script>
+  </body>
+</html>
